@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 
@@ -9,34 +10,28 @@ function Login() {
         formState: { errors },
         watch
     } = useForm()
+    const navigate = useNavigate()
+
     const [showPwd, setShowPwd] = useState(false)
-
-    const getPassword = watch("password")
-
 
     function handleDisplayPwd() {
         setShowPwd((prev) => !prev)
     }
 
     function handleLogin(data) {
-        console.log("DATA", data)
+        if (
+            data.email === 'raja@yopmail.com' &&
+            data.password === 'test@123'
+        ) {
+            console.log("AUTHENTICATED")
+
+            sessionStorage.setItem('user', true)
+            navigate('/')
+        }
     }
-
-
-    console.log("PASS", getPassword)
-
 
     return (
         <form onSubmit={handleSubmit(handleLogin)}>
-            {/* {
-                showPwd === false ? (
-                    <p>it is false</p>
-                ) : (
-                    <p>it is true</p>
-                )
-            } */}
-
-
             <input
                 placeholder='email'
                 type='email'
@@ -71,24 +66,6 @@ function Login() {
             >{showPwd ? 'Hide' : 'Show'}</button>
             {errors.password ? <span>{errors.password.message}</span> : ''}
 
-
-            <br />
-            <input
-                placeholder='confiorm pasword'
-                type={showPwd ? 'text' : 'password'}
-                {...register('cPassword', {
-                    required: {
-                        value: true,
-                        message: 'This is  required field'
-                    },
-                    validate: (value) => {
-                        if(value === getPassword){
-                            
-                        }
-                    
-                    }
-                })}
-            />
 
             <br />
 

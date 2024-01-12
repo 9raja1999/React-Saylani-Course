@@ -1,10 +1,13 @@
 import { useState, useMemo, useEffect } from 'react'
 import Child from './components/Child'
-import Login from './components/forms/Login'
 import './App.css'
+import { useNavigate, createSearchParams, useSearchParams } from 'react-router-dom'
 
 
 function App() {
+  const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
+
   const [count, setCount] = useState(0)
   const [randomNumber, setRandomNumber] = useState(null)
   const [numbers, setNumber] = useState([1, 2, 3, 4, 5])
@@ -41,8 +44,11 @@ function App() {
   }
 
 
-  console.log("MAX", maxNumber)
-
+  function handleNavigate() {
+    navigate('/about')
+    searchParams.set("foo",'bar')
+    setSearchParams(searchParams);
+  }
 
 
   return (
@@ -58,8 +64,9 @@ function App() {
         onClick={handleRandomNumber}
       >Generate Random</button>
 
-      <Login />
-      
+      <button
+        onClick={handleNavigate}
+      >NAVIGATE WITH PARAMS</button>
     </>
   )
 }
