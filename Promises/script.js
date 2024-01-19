@@ -71,40 +71,46 @@
 //     })
 
 
-// const promise = new Promise(function (resolve, reject) {
-//     setTimeout(() => {
-//         let error = false
+const promise = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        let error = false
 
-//         if (!error) resolve({ name: 'rajaehsan', password: 'test@123' })
-//         else reject('Error occured')
-//     }, 1000)
-// })
+        if (!error) resolve({ name: 'rajaehsan', password: 'test@123' })
+        else reject('Error occured')
+    }, 1000)
+})
 
-// async function consumePromise() {
-//     try {
-//         const response = await promise
-//         console.log("Success ...." , response)
-//     } catch (error) {
-//         console.log("Error ...." , error)
-//     } 
-// }
-
-// consumePromise()
-
-let posts = null
-
-async function getAllPosts() {
+async function consumePromise() {
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-        const data = await response.json()
-        posts =  data
+        const response = await promise
+        console.log("Success ...." , response)
     } catch (error) {
-        console.log("Err", error)
-
-    }
+        console.log("Error ...." , error)
+    } 
 }
-getAllPosts()
 
+consumePromise()
+
+// let posts = null
+
+// async function getAllPosts() {
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+//         const data = await response.json()
+//         console.log("Data" , data)
+//     } catch (error) {
+//         console.log("Err", error)
+
+//     }
+// }
+// // getAllPosts()
+
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+.then(() => {
+    console.log('kjkj');
+})
+.catch('err')
 
 
 
