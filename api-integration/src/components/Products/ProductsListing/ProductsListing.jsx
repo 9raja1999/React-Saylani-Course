@@ -1,7 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 import Card from '../../Card/Card';
+import { MainContext } from '../../../providers/context/MainContext';
+
 function ProductsListing({ products, handle }) {
-    console.log('HEY FROM LISTING');
+    const { count } = useContext(MainContext)
+
+
     return (
         <>
             <div
@@ -11,6 +15,7 @@ function ProductsListing({ products, handle }) {
                     alignItems: 'center',
                     flexWrap: 'wrap'
                 }}>
+                    <h2>COUNT = {count}</h2>
                 {
                     products.map((product, index) => {
                         return <Card

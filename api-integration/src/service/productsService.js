@@ -12,4 +12,23 @@ const getAllProducts = async (skip) => {
     }
 }
 
-export default getAllProducts
+
+const searchProduct = async (search) => {
+    try {
+        const responseApi = await fetch(
+            `https://dummyjson.com/products/search?q=${search}`
+        )
+        const data = await responseApi.json()
+        return data
+    } catch (error) {
+        console.error('Err', error)
+        return null
+    }
+}
+
+
+
+export {
+    getAllProducts,
+    searchProduct
+}
