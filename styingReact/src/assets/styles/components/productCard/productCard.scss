@@ -1,0 +1,27 @@
+.productCard{
+    border: 1px solid red;
+    border-radius: 3%;
+    width: 300px;
+    padding: 10px;
+    
+    img{
+        width: 100%;
+    }
+    
+    button{
+        @include buttonHover(green)
+    }
+}
+
+div.seeMore{
+    width: 300px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+
+    button{
+        @include buttonHover(green)
+    }
+}

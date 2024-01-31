@@ -1,0 +1,6 @@
+@mixin buttonHover($color){
+    
+            padding: 5px;
+            border-radius: 5px;
+            background-color: $color;
+}

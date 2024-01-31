@@ -1,0 +1,15 @@
+@import './variables/variable.scss';
+
+// MIXINS
+@import './mixins/buttons.scss';
+
+
+// components CSS
+@import './components/stickToTop/stickToTop.scss';
+@import './components/header/header.scss';
+@import './components/banner/banner.scss';
+@import './components/forms/filterform.scss';
+@import './components/productCard/productCard.scss';
+
+// pages CSS
+@import './pages/home.scss'

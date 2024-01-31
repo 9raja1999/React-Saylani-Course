@@ -1,0 +1,15 @@
+nav.headerNav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    ul.linksList{
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 10px;
+        padding: 0;
+    }
+}
