@@ -1,16 +1,9 @@
-import React, { memo } from "react";
+import React from 'react'
+import { memo } from 'react'
 
-
-const Child = ({
-    text,
-    randomNumber
-}) => {
-
-    console.log("Hi")
+function Child({ count, bool }) {
     return (
-        <>
-            <p>{text} - {randomNumber}</p>
-        </>
+        <div>Count {count}</div>
     )
 }
 

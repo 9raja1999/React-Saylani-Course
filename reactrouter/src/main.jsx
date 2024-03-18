@@ -8,31 +8,21 @@ import RootLayout from './layout/RootLayout.jsx'
 import Login from './pages/auth/Login.jsx'
 import AuthLayout from './layout/AuthLayout.jsx'
 import PrivateRoute from './components/navigation/PrivateRoute.jsx'
+import Contact from './pages/Contact.jsx'
+import MainLayout from './layouts/MainLayout.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <PrivateRoute>
-      <RootLayout />
-    </PrivateRoute>,
+    element: <MainLayout />,
     children: [
       {
-        path: "",
+        path: '/',
         element: <App />
       },
       {
-        path: "/about",
+        path: '/about',
         element: <About />
-      },
-    ]
-  },
-  {
-    path: '/auth',
-    element: <AuthLayout />,
-    children: [
-      {
-        path: "",
-        element: <Login />
       },
     ]
   },

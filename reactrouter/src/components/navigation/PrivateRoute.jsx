@@ -8,21 +8,21 @@ function PrivateRoute({ children }) {
 
 
 
-    useEffect(() => {
-        let isLoggedIn = JSON.parse(sessionStorage.getItem('user'))
-        console.log(isLoggedIn)
-        if (isLoggedIn === true) {
-            setIsLoggedIn(true)
-        } else {
-            setIsLoggedIn(false)
-            navigate('/auth')
-        }
-    }, [])
+    // useEffect(() => {
+    //     let isLoggedIn = JSON.parse(sessionStorage.getItem('user'))
+    //     console.log(isLoggedIn)
+    //     if (isLoggedIn === true) {
+    //         setIsLoggedIn(true)
+    //     } else {
+    //         setIsLoggedIn(false)
+    //         navigate('/auth')
+    //     }
+    // }, [])
 
 
-    if (isLoggedIn === false) {
-        return null
-    }
+    // if (isLoggedIn === false) {
+    //     return null
+    // }
 
     return (
         <>

@@ -1,33 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import List from './list/List'
 import './header.css'
 
 function Header() {
+  
     return (
         <nav>
-            <List>
-                <li>
-                    <NavLink
-                        to={'/'}
-                        className={({ isActive }) => {
-                            if (isActive) return "active"
-                        }}
-                    >
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to={'/about'}
-                        className={({ isActive }) => {
-                            if (isActive) return "active"
-                        }}
-                    >
-                        About
-                    </NavLink>
-                </li>
-            </List>
+           <h1>Header</h1>
+           <ul>
+            <li>Hoome</li>
+            <li>About</li>
+            <li>Contact</li>
+           </ul>
         </nav>
     )
 }

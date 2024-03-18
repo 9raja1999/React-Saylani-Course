@@ -5,9 +5,9 @@ import Header from '../components/Header'
 function RootLayout() {
   return (
     <>
-        <Header />
+        {/* <Header /> */}
         <Outlet />
-        <p>footer</p>
+        {/* <p>footer</p> */}
     </>
   )
 }
