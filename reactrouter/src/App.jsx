@@ -3,29 +3,36 @@ import Header from './components/Header'
 import MainLayout from './layouts/MainLayout'
 import Child from './components/Child'
 import Input from './components/forms/Input'
-
+import useWindowSize from './Hooks/useWindowSize'
 
 
 function App() {
+  const { dimensions } = useWindowSize()
   const [count, setCount] = useState(0)
   const [bool, setBool] = useState(false)
-  const taskRef = useRef(null)
+  const inputRef = useRef(null)
   const [tasks, setTasks] = useState([])
 
 
+  function handleClick() {
+    inputRef.current.focus()
+  }
 
 
   const handleSubmit = () => {
     const { current } = taskRef
     setTasks([current.value, ...tasks])
   }
+
+  console.log("dimensions" , dimensions);
   return (
     <div>
       <h1>Home</h1>
 
 
-      <Input ref={taskRef} placeholder="enter task" type="text" />
-      <button
+      <Input ref={inputRef} placeholder="enter task" type="text" />
+      <button onClick={handleClick}>EDIT</button>
+      {/* <button
         onClick={handleSubmit}
       >ADDTASK</button>
 
@@ -45,7 +52,7 @@ function App() {
       >INC</button>
       <button
         onClick={() => setBool(!bool)}
-      >UPDATE BOOL</button>
+      >UPDATE BOOL</button> */}
     </div>
   )
 }
